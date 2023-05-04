@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todo/controllers/task_controller.dart';
 
 class UpsertScreen extends StatelessWidget {
   UpsertScreen({Key? key}) : super(key: key);
 
+  // Variables
   final titleText = TextEditingController();
   final messageText = TextEditingController();
+
+  // Controllers
+  final taskController = Get.find<TaskController>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,22 +57,25 @@ class UpsertScreen extends StatelessWidget {
               height: 15,
             ),
             ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all(
-                    const EdgeInsets.all(10),
-                  ),
+              onPressed: _submitTask,
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.all(10),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text('Submit Task'),
-                    Icon(Icons.check),
-                  ],
-                ))
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text('Submit Task'),
+                  Icon(Icons.check),
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
+
+  void _submitTask() {}
 }
