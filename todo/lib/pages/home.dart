@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,6 +11,14 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Task Todo App'),
         centerTitle: true,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addTask,
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  void _addTask() {
+    Get.toNamed('/upsertTask');
   }
 }
