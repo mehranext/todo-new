@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               var task = tasks.value[index];
               return Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.grey[200],
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      task.createDate.toString(),
+                      task.createDate.toString().split(' ')[0],
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],

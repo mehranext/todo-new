@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/controllers/task_controller.dart';
+import 'package:todo/models/task_model.dart';
 
 class UpsertScreen extends StatelessWidget {
   UpsertScreen({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class UpsertScreen extends StatelessWidget {
               height: 15,
             ),
             TextField(
-              controller: titleText,
+              controller: messageText,
               maxLines: 5,
               keyboardType: TextInputType.multiline,
               decoration: const InputDecoration(
@@ -77,5 +78,22 @@ class UpsertScreen extends StatelessWidget {
     );
   }
 
-  void _submitTask() {}
+  void _submitTask() {
+    TaskModel task = TaskModel(
+      id: DateTime.now().toString(),
+      title: titleText.text,
+      text: messageText.text,
+      createDate: DateTime.now(),
+      check: false,
+    );
+    if (taskController.addTask(task)) {
+      Get.back();
+    } else {
+      Get.showSnackbar(const GetSnackBar(
+        icon: Icon(Icons.error),
+        title: 'Error',
+        message: 'Error To Submit Task',
+      ));
+    }
+  }
 }

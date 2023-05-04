@@ -22,7 +22,7 @@ class TaskController extends GetxController {
   bool addTask(TaskModel task) {
     try {
       var storage = GetStorage();
-      storage.write(task.id, task);
+      storage.write(task.id, task.toJson());
       return true;
     } catch (e) {
       return false;
