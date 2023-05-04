@@ -3,14 +3,14 @@ import 'package:todo/bindings/task_bindings.dart';
 import 'package:todo/pages/home.dart';
 import 'package:todo/pages/upsert.dart';
 
-var routes = [
+List<GetPage> routes = <GetPage>[
   GetPage(
-    name: 'home',
+    name: '/home',
     page: () => HomeScreen(),
     binding: TaskBinding(),
   ),
   GetPage(
-    name: 'upsertTask',
+    name: '/upsertTask',
     page: () => UpsertScreen(),
     binding: TaskBinding(),
   ),
